@@ -16,7 +16,7 @@
             <h1>Cadastro</h1>
         </div>
     
-        <form action="index.php" method="POST">
+        <form method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="nome" name="nome">
@@ -31,7 +31,22 @@
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
-    </div>  
+    </div>
+
+    <?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $nome = $_POST["nome"];
+    $email = $_POST["email"];
+    $telefone = $_POST["telefone"];
+
+    echo "Nome recebido: " . $nome . "<br>";
+    echo "E-mail recebido: " . $email . "<br>";
+    echo "Telefone recebido: " . $telefone;
+}
+
+?>
     
 </body>
 </html>
