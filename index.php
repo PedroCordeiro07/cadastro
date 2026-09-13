@@ -33,20 +33,20 @@
         </form>
     </div>
 
-    <?php
+    <div class="resultado">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nome = $_POST["nome"];
+            $email = $_POST["email"];
+            $telefone = $_POST["telefone"];
 
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $telefone = $_POST["telefone"];
-
-    echo "Nome recebido: " . $nome . "<br>";
-    echo "E-mail recebido: " . $email . "<br>";
-    echo "Telefone recebido: " . $telefone;
-}
-
-?>
+            echo "Nome recebido: " . $nome . "<br>";
+            echo "E-mail recebido: " . $email . "<br>";
+            echo "Telefone recebido: " . $telefone;
+        }
+        ?>
+    </div>
     
 </body>
 </html>
