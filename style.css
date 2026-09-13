@@ -1,5 +1,11 @@
 body {
     min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     background: linear-gradient(
         135deg, 
@@ -36,8 +42,9 @@ form {
 }
 
 .resultado {
+    width: 600px;
+    max-width: 80%;
     color: white;
     margin-top: 20px;
-    width: 100%;
+    text-align: center;
 }
-
