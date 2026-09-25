@@ -37,14 +37,22 @@
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $nome = $_POST["nome"];
+            $name = $_POST["name"];
             $email = $_POST["email"];
-            $telefone = $_POST["telefone"];
-
-            echo "Nome recebido: " . $nome . "<br>";
-            echo "E-mail recebido: " . $email . "<br>";
-            echo "Telefone recebido: " . $telefone;
+            $phoneNumber = $_POST["phoneNumber"];
         }
+
+        $databaseUrl = getenv("DATABASE_URL");
+
+        $connection = pg_connect($databaseUrl);
+
+        pg_query_params(
+            $connection,
+            "INSERT INTO users (name, email, phone_number) VALUES ($name, $email, $phoneNumber)"
+        );
+
+        echo "Cadastro realizado com sucesso!"
+
         ?>
     </div>
     
