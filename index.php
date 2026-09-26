@@ -45,7 +45,7 @@
 
             $connection = pg_connect($databaseUrl);
 
-            pg_query_params(
+            $result = pg_query_params(
                 $connection,
                 "INSERT INTO users (name, email, phone_number) VALUES ($1, $2, $3)",
                 [$name, $email, $phoneNumber]
