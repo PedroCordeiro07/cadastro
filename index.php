@@ -40,19 +40,26 @@
             $name = $_POST["nome"];
             $email = $_POST["email"];
             $phoneNumber = $_POST["phoneNumber"];
+
+            $databaseUrl = getenv("DATABASE_URL");
+
+            $connection = pg_connect($databaseUrl);
+
+            pg_query_params(
+                $connection,
+                "INSERT INTO users (name, email, phone_number) VALUES ($1, $2, $3)",
+                [$name, $email, $phoneNumber]
+            );
         }
 
-        $databaseUrl = getenv("DATABASE_URL");
+        if ($result) {
+            echo "Cadastro realizado com sucesso!";
+        }
 
-        $connection = pg_connect($databaseUrl);
+        else {
+            echo "Erro ao cadastrar...";
+        }
 
-        pg_query_params(
-            $connection,
-            "INSERT INTO users (nome, email, phone_number) VALUES ($1, $2, $3)",
-            [$name, $email, $phoneNumber]
-        );
-
-        echo "Cadastro realizado com sucesso!";
 
         ?>
     </div>
