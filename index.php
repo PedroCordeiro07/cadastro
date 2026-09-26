@@ -37,7 +37,7 @@
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $name = $_POST["name"];
+            $name = $_POST["nome"];
             $email = $_POST["email"];
             $phoneNumber = $_POST["phoneNumber"];
         }
@@ -48,7 +48,7 @@
 
         pg_query_params(
             $connection,
-            "INSERT INTO users (name, email, phone_number) VALUES ($1, $2, $3)",
+            "INSERT INTO users (nome, email, phone_number) VALUES ($1, $2, $3)",
             [$name, $email, $phoneNumber]
         );
 
