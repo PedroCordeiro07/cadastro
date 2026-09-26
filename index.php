@@ -37,7 +37,7 @@
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $name = $_POST["nome"];
+            $name = $_POST["name"];
             $email = $_POST["email"];
             $phoneNumber = $_POST["phoneNumber"];
 
