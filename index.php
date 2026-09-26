@@ -19,7 +19,7 @@
         <form method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome">
+                <input type="text" class="form-control" id="nome" name="name">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">E-mail</label>
@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" id="telefone" name="telefone">
+                <input type="tel" class="form-control" id="telefone" name="phoneNumber">
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
@@ -50,16 +50,15 @@
                 "INSERT INTO users (name, email, phone_number) VALUES ($1, $2, $3)",
                 [$name, $email, $phoneNumber]
             );
-        }
 
-        if ($result) {
-            echo "Cadastro realizado com sucesso!";
-        }
+            if ($result) {
+                echo "Cadastro realizado com sucesso!";
+            }
 
-        else {
-            echo "Erro ao cadastrar...";
+            else {
+                echo "Erro ao cadastrar...";
+            }
         }
-
 
         ?>
     </div>
