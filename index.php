@@ -48,10 +48,11 @@
 
         pg_query_params(
             $connection,
-            "INSERT INTO users (name, email, phone_number) VALUES ($name, $email, $phoneNumber)"
+            "INSERT INTO users (name, email, phone_number) VALUES ($1, $2, $3)",
+            [$name, $email, $phoneNumber]
         );
 
-        echo "Cadastro realizado com sucesso!"
+        echo "Cadastro realizado com sucesso!";
 
         ?>
     </div>
